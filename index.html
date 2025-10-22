@@ -1,39 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Timeless ⏳ | By Abhi</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Timeless — Abhi</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- GSAP + ScrollTrigger (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1 class="title">⏳ Timeless</h1>
-    <p class="subtitle">A Living Day & Night Experience</p>
-  </header>
 
-  <main>
-    <div class="sky" id="sky">
-      <div class="sun" id="sun"></div>
-      <div class="moon" id="moon"></div>
-      <div class="stars" id="stars"></div>
-      <div class="clouds" id="clouds"></div>
+  <!-- Top nav minimal -->
+  <nav class="topnav">
+    <div class="brand">Timeless</div>
+    <div class="nav-actions">
+      <button id="jumpMorning">Morning</button>
+      <button id="jumpNoon">Noon</button>
+      <button id="jumpEvening">Evening</button>
+      <button id="jumpNight">Night</button>
     </div>
+  </nav>
 
-    <section class="content">
-      <h2>Welcome to Abhi’s Timeless World</h2>
-      <p>
-        This site changes as time passes — just like life. Watch the colors flow, 
-        stars appear, and light fade as the day turns to night. 
-      </p>
-      <div id="clock" class="clock"></div>
+  <!-- cinematic canvas for global effects -->
+  <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Sections -->
+  <main class="site">
+    <!-- Section 1: Morning -->
+    <section id="morning" class="scene scene-morning" data-phase="morning">
+      <div class="content">
+        <h1 class="title">Morning — New Light</h1>
+        <p class="lead">Soft warmth, clear goals. The day begins with bright possibilities.</p>
+        <div class="panel">Start your day with focus — small steps make big journeys.</div>
+      </div>
+      <div class="decor decor-sun" aria-hidden="true"></div>
+    </section>
+
+    <!-- Section 2: Noon -->
+    <section id="noon" class="scene scene-noon" data-phase="noon">
+      <div class="content">
+        <h1 class="title">Noon — Momentum</h1>
+        <p class="lead">Energy peaks. Build, create, ship. Small wins compound.</p>
+        <div class="panel">Ship experiments; iterate quickly — progress is a habit.</div>
+      </div>
+      <div class="decor decor-sky" aria-hidden="true"></div>
+    </section>
+
+    <!-- Section 3: Evening -->
+    <section id="evening" class="scene scene-evening" data-phase="evening">
+      <div class="content">
+        <h1 class="title">Evening — Reflection</h1>
+        <p class="lead">Slow the pace. Refine ideas. Celebrate small victories.</p>
+        <div class="panel">Review what worked — tomorrow we start sharper.</div>
+      </div>
+      <div class="decor decor-horizon" aria-hidden="true"></div>
+    </section>
+
+    <!-- Section 4: Night -->
+    <section id="night" class="scene scene-night" data-phase="night">
+      <div class="content">
+        <h1 class="title">Night — Dream & Plan</h1>
+        <p class="lead">Quiet clarity. The mind creates futures while the world is still.</p>
+        <div class="panel">Write a single bold idea down — guard it, grow it.</div>
+      </div>
+      <div class="decor decor-moon" aria-hidden="true"></div>
+      <canvas id="stars" class="stars-canvas" aria-hidden="true"></canvas>
     </section>
   </main>
 
-  <footer>
-    <p>Crafted with ❤️ by Abhi</p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div>© <span id="year"></span> Crafted with ❤️ by Abhi</div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Our script -->
+  <script src="script.js" defer></script>
 </body>
 </html>
